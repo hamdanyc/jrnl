@@ -1,0 +1,26 @@
+{
+    "id": "77DAFAB7",
+    "path": "~/jrnl/eb_proc.R",
+    "project_path": "eb_proc.R",
+    "type": "r_source",
+    "hash": "1293268397",
+    "contents": "",
+    "dirty": false,
+    "created": 1655641775361.0,
+    "source_on_save": false,
+    "relative_order": 1,
+    "properties": {
+        "source_window_id": "",
+        "Source": "Source",
+        "cursorPosition": "52,19",
+        "scrollLine": "38"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1655644625,
+    "encoding": "UTF-8",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1655644625783,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,50 @@
+---
+title: "Marking Form"
+author: "Lincoln University College"
+params:
+  marks: !r data.frame(Content = 42, Knowledge = 32,
+                       Reading = 12, Reference = 6,
+                       Presentation = 6, Total = 78)
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE,
+	comment = NA
+)
+
+options(
+  knitr.kable.NA = '',
+  knitr.table.format = "html"
+) 
+
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+
+source("eb_form.R")
+```
+```{r Merge form, echo=FALSE, message=FALSE}
+
+marks <- params$marks
+total <- marks$Total
+
+form %>%
+  rbind(c("Marks Obtained",marks$Content,marks$Knowledge,
+          marks$Reading,marks$Reference,marks$Presentation)) %>%
+  rbind(c("Overall\nComment"," "," "," "," "," ")) %>%
+  rbind(c("Examiner Name:\n Signature:", "","Examiner Name:\nSignature","",paste("Total Marks:", total),"")) %>%
+  kable(booktab = TRUE) %>%
+  kable_styling(latex_options = "scale_down") %>%
+  column_spec(1, bold = T, color = "red", width = "7em") %>%
+  column_spec(2:6, width = "10em") %>%
+  add_header_above(c("", "ASSESSMENT CRITERIA FOR COURSEWORK (ASSIGNMENT)" = 5))
+  
+```
